@@ -23,6 +23,8 @@ it("phones should return an array", async (done) => {
 
 it("phones should return Phone type", async (done) => {
   const response = await request.get("/phones");
+  expect(response.status).toBe(200);
+
   const phone: Phone = response.body[0];
 
   expect(phone.brand).toBeTruthy();
@@ -32,6 +34,14 @@ it("phones should return Phone type", async (done) => {
   expect(phone.price).toBeTruthy();
   expect(phone.color).toBeTruthy();
   expect(phone.colorDescription).toBeTruthy();
+
+  done();
+});
+
+it("Should return 404 ", async (done) => {
+  const response = await request.get("/something");
+
+  expect(response.status).toBe(404);
 
   done();
 });
