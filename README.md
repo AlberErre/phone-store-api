@@ -9,6 +9,13 @@ yarn
 yarn start
 ```
 
+## Testing (Dev)
+
+```
+yarn
+yarn test:watch
+```
+
 ## Build & deployment (Docker 🐳)
 
 Start docker daemon
