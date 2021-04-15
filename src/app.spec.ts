@@ -10,3 +10,12 @@ it("should say hello", async (done) => {
   expect(response.body.message).toBe("hello!");
   done();
 });
+
+it("phones should return an array", async (done) => {
+  const response = await request.get("/phones");
+  const phones = response.body;
+
+  expect(response.status).toBe(200);
+  expect(Array.isArray(phones)).toBeTruthy();
+  done();
+});
