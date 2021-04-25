@@ -1,7 +1,7 @@
 import { mongoConnection } from "../../../mongo";
 import { PhoneRepository } from "../../application/repositories/PhoneRepository";
 import { serializePhones } from "./serializer";
-import { PhoneSchema } from "./schema";
+import { PhoneModel } from "./schema";
 import { PhoneEntity } from "./entity";
 
 //NOTE: local url from mongodb instance
@@ -14,7 +14,7 @@ export class MongoPhones implements PhoneRepository {
   }
 
   public async getPhones() {
-    const phones = await PhoneSchema.find((err, phones) => {
+    const phones = await PhoneModel.find((err, phones) => {
       //TODO: we should handle errors differently
       if (err) return [];
 
