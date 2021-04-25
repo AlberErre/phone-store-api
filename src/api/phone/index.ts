@@ -1,10 +1,10 @@
 import express from "express";
-import { getPhonesUseCase } from "./../../phone/application";
+import getPhones from "../../phone/application/getPhones";
 
 const phoneRouter = express.Router();
 
-phoneRouter.get("/", (req, res) => {
-  const phones = getPhonesUseCase();
+phoneRouter.get("/", async (req, res) => {
+  const phones = await getPhones();
   res.json(phones);
 });
 
