@@ -1,7 +1,7 @@
-import { FakePhones } from "../../infrastructure/FakePhones";
+import { MongoPhones } from "../../infrastructure/MongoPhones";
 import { getPhonesUseCase } from "./getPhones.usecase";
 
-// NOTE: dependency injection of fake phones
-const phoneRepository = new FakePhones();
+// // NOTE: dependency injection of Mongo phones
+const phoneRepository = new MongoPhones();
 
 export default getPhonesUseCase(phoneRepository);
