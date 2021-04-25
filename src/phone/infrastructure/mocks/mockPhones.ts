@@ -1,4 +1,4 @@
-import { Phone, ImageUrlType } from "../domain/Phone";
+import { ImageUrlType, Phone } from "../../domain/Phone";
 
 export const mockPhones: Phone[] = [
   {
