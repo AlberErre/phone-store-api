@@ -1,8 +1,7 @@
 import { mongoConnection } from "../../../mongo";
 import { PhoneRepository } from "../../application/repositories/PhoneRepository";
-import { serializePhones } from "./serializer";
 import { PhoneModel } from "./schema";
-import { PhoneEntity } from "./entity";
+import { Phone } from "../../domain/Phone";
 
 //NOTE: local url from mongodb instance
 const LOCAL_MONGO_URL = "mongodb://localhost:27017";
@@ -17,11 +16,10 @@ export class MongoPhones implements PhoneRepository {
     const phones = await PhoneModel.find((err, phones) => {
       //TODO: we should handle errors differently
       if (err) return [];
-
       return phones;
     });
 
-    return serializePhones((phones as unknown) as PhoneEntity[]);
+    return (phones as unknown) as Phone[];
   }
 
   private async mongoConnect() {
